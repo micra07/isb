@@ -1,0 +1,4 @@
+lab_1/task1/key.json
+lab_1/task1/text.txt
+lab_1/task1/encrypted_text.txt
+lab_1/task1/decrypted_text.txt

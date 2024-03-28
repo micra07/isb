@@ -15,8 +15,6 @@ def save_to_file(filename, content):
     except Exception as e:
         logging.error(f"An error occurred while saving to file {filename}: {str(e)}")
 
-
-
 def read_from_file(filename):
     """
     Reads the content from a file with the specified filename.

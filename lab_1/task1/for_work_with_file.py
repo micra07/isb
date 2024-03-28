@@ -15,8 +15,6 @@ def save_to_file(filename, content):
     except Exception as e:
         logging.error(f"An error occurred while saving to file {filename}: {str(e)}")
 
-
-
 def read_from_file(filename):
     """
     Reads the content from a file with the specified filename.
@@ -34,8 +32,6 @@ def read_from_file(filename):
         logging.error(f"An error occurred while reading from file {filename}: {str(e)}")
         return ""
     
-    
-    
 def save_to_json_file(file_path: str, key: str):
     """
     Saves the key to a JSON file.
@@ -50,3 +46,16 @@ def save_to_json_file(file_path: str, key: str):
         print(f"Ключ успешно сохранен в файл {file_path}")
     except Exception as e:
         print(f"Ошибка при сохранении ключа в файл {file_path}: {str(e)}")
+
+def read_from_json_file(filename):
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            return json.load(file)
+    except Exception as e:
+        logging.error(f"An error occurred while reading from file {filename}: {str(e)}")
+        return {}
+    
+def read_key_from_json_file(filename):
+    with open(filename, 'r', encoding='utf-8') as key_file:
+        key = json.load(key_file)['key']
+    return key

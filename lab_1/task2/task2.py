@@ -1,8 +1,6 @@
 import task2_key
 import logging
-
 from for_work_with_file import save_to_file, read_from_file, save_to_json_file
-
 
 def frequency_analysis(text: str) -> list:
     """
@@ -14,7 +12,7 @@ def frequency_analysis(text: str) -> list:
     Returns:
         list: A list of tuples where each tuple contains a letter and its frequency in the text.
     """
-    
+
     dictonary_of_frequency = {}
     len_text = len(text)
     try:
@@ -28,7 +26,6 @@ def frequency_analysis(text: str) -> list:
         return result
     except Exception:
         logging.error(f"Ошибка в функции frequency_analysis(text): не удалось вернуть список")
-
 
 def main():
     """

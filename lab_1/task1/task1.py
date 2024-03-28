@@ -1,30 +1,15 @@
-import json
+import argparse
 import logging
-
+import json
 from enum import Enum
-from for_work_with_file import save_to_file, read_from_file, save_to_json_file
+from for_work_with_file import save_to_file, read_from_file, read_from_json_file, read_key_from_json_file
 
-alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
-
-    
 class VigenerMode(Enum):
-    """Enumeration class for the modes of Vigenere cipher operations."""
     ENCRYPT = 1
     DECRYPT = 2
-    
-def vigener_cipher(text, key, mode: VigenerMode):
-    """
-    Encrypts or decrypts the given text using the Vigenère cipher with the specified key and mode.
-    
-    Parameters:
-    text (str): The text to be encrypted/decrypted.
-    key (str): The key to be used in the Vigenère cipher.
-    mode (VigenerMode): The mode of operation - ENCRYPT for encryption, DECRYPT for decryption.
-    
-    Returns:
-    str: The resulting encrypted or decrypted text.
-    """
-    result_text = ""        
+
+def vigener_cipher(text, key, mode: VigenerMode, alphabet):
+    result_text = ""
     key_length = len(key)
     key_index = 0
 
@@ -48,20 +33,26 @@ def vigener_cipher(text, key, mode: VigenerMode):
     
     return result_text
 
-def main():
-    """
-    Main function to demonstrate the Vigenere cipher encryption and decryption process.
-    """
-    key = 'лист'
-    save_to_json_file('lab_1/task1/key.json', key)
+def main(args_file):
+    with open(args_file) as file:
+        args = [line.strip() for line in file.readlines()]
 
-    text = read_from_file('lab_1/task1/text.txt')
-    encrypted_text = vigener_cipher(text, key, VigenerMode.ENCRYPT)
-    save_to_file('lab_1/task1/encrypted_text.txt', encrypted_text)
+    key = read_key_from_json_file(args[0])
 
-    encrypted_text = read_from_file('lab_1/task1/encrypted_text.txt')
-    decrypted_text = vigener_cipher(encrypted_text, key, VigenerMode.DECRYPT)
-    save_to_file('lab_1/task1/decrypted_text.txt', decrypted_text)
+    alphabet_data = read_from_json_file('lab_1/task1/const.json')
+    if 'alphabet' in alphabet_data:
+        alphabet = alphabet_data['alphabet']
+    else:
+        logging.error("Alphabet not found in const.json")
+        return
+
+    text = read_from_file(args[1])
+    encrypted_text = vigener_cipher(text, key, VigenerMode.ENCRYPT, alphabet)
+    save_to_file(args[2], encrypted_text)
+
+    encrypted_text = read_from_file(args[2])
+    decrypted_text = vigener_cipher(encrypted_text, key, VigenerMode.DECRYPT, alphabet)
+    save_to_file(args[3], decrypted_text)
 
 if __name__ == '__main__':
-    main()
+    main('lab_1/task1/args.txt')
