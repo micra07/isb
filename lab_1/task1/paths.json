@@ -1,0 +1,7 @@
+{
+    "alphabet_1": "\\isb\\lab_1\\task1\\alphabet.json",
+    "key_data": "\\isb\\lab_1\\task1\\key.json",
+    "text_data": "\\isb\\lab_1\\task1\\text.txt",
+    "encrypted": "\\isb\\lab_1\\task1\\encrypted_text.txt",
+    "decrypted": "\\isb\\lab_1\\task1\\decrypted_text.txt"
+  }

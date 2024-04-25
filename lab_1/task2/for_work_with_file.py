@@ -3,8 +3,8 @@ import logging
 
 def save_to_file(filename, content):
     """
-    Saves the given content to a file with the specified filename.
-    
+    Saves content to a file.
+
     Parameters:
         filename (str): The name of the file to save to.
         content (str): The content to be written to the file.
@@ -17,8 +17,8 @@ def save_to_file(filename, content):
 
 def read_from_file(filename):
     """
-    Reads the content from a file with the specified filename.
-    
+    Reads content from a file.
+
     Parameters:
         filename (str): The name of the file to read from.
     
@@ -31,13 +31,28 @@ def read_from_file(filename):
     except Exception as e:
         logging.error(f"An error occurred while reading from file {filename}: {str(e)}")
         return ""
-       
+
+def read_from_json_file(filename):
+    """
+    Reads JSON data from a file.
+
+    Parameters:
+        filename (str): The name of the file to read from.
+    
+    Returns:
+        dict: The JSON data read from the file.
+    """
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            return json.load(file)
+    except Exception as e:
+        logging.error(f"An error occurred while reading from file {filename}: {str(e)}")
+        return {}
+
 def save_to_json_file(file_path: str, data):
     """
-    Saves the given data to a JSON file.
-    
-    Writes the provided data dictionary to a JSON file located at the specified file path.
-    
+    Saves data to a JSON file.
+
     Parameters:
         file_path (str): The path to the JSON file to save the data to.
         data (dict): The data to be saved to the JSON file.
