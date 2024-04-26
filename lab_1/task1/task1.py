@@ -12,6 +12,7 @@ class VigenerMode(Enum):
     ENCRYPT = 1
     DECRYPT = 2
 
+
 def vigener_cipher(text, key, mode: VigenerMode, alphabet):
     """
     Encrypt or decrypt text using the Vigenere cipher.
@@ -47,6 +48,7 @@ def vigener_cipher(text, key, mode: VigenerMode, alphabet):
         logging.error(f"An error occurred during Vigener cipher operation: {str(e)}")
     return result_text
 
+
 def main():
     """
     Main function of the program.
@@ -75,5 +77,7 @@ def main():
     decrypted_text = vigener_cipher(encrypted_text, key, VigenerMode.DECRYPT, alphabet)
     for_work_with_file.save_to_file(absolute_path + decrypted, decrypted_text)
 
+
 if __name__ == '__main__':
     main()
+ 

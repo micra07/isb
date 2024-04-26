@@ -1,6 +1,7 @@
 import json
 import logging
 
+
 def save_to_file(filename, content):
     """
     Saves content to a file.
@@ -14,6 +15,7 @@ def save_to_file(filename, content):
             file.write(content)
     except Exception as e:
         logging.error(f"Error while saving to file {filename}: {str(e)}")
+
 
 def read_from_file(filename):
     """
@@ -32,6 +34,7 @@ def read_from_file(filename):
         logging.error(f"Error while reading from file {filename}: {str(e)}")
         return ""
 
+
 def read_from_json_file(filename):
     """
     Reads JSON data from a file.
@@ -48,6 +51,7 @@ def read_from_json_file(filename):
     except Exception as e:
         logging.error(f"Error while reading from file {filename}: {str(e)}")
         return {}
+
 
 def read_key_from_json_file(filename):
     """
@@ -66,3 +70,4 @@ def read_key_from_json_file(filename):
     except Exception as e:
         logging.error(f"Error while reading key from JSON file {filename}: {str(e)}")
         return ""
+ 

@@ -32,3 +32,4 @@ dictonary_letter_value = {
 "ч": "<",
 "ц": "Ч"
 }
+ 

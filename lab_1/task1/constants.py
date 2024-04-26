@@ -1,1 +1,2 @@
-PATH = "\\isb\\lab_1\\task1\\paths.json"
+PATH = "\\lab_1\\task1\\paths.json"
+ 

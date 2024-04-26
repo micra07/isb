@@ -29,6 +29,7 @@ def frequency_analysis(text: str) -> list:
     except Exception:
         logging.error(f"Error in function frequency_analysis(text): could not return the list")
 
+
 def main():
     """
     Perform frequency analysis on encrypted text and decrypt it using a predefined key.
@@ -45,5 +46,7 @@ def main():
         text = text.replace(task2_key.dictonary_letter_value[letter], letter)
     for_work_with_file.save_to_file(absolute_path + decrypted, text)
 
+
 if __name__ == '__main__':
     main()
+ 
