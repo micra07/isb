@@ -1,9 +1,10 @@
 import os
 import logging
-import task2_key
-import for_work_with_file
 
-from constants import PATH
+import for_work_with_file
+from task2 import task2_key
+from constants2 import PATH
+
 
 def frequency_analysis(text: str) -> list:
     """
@@ -11,7 +12,7 @@ def frequency_analysis(text: str) -> list:
 
     Parameters:
         text (str): The text to analyze.
-    
+
     Returns:
         list: A list of tuples where each tuple contains a letter and its frequency in the text.
     """
@@ -22,12 +23,12 @@ def frequency_analysis(text: str) -> list:
             if (letter not in dictonary_of_frequency.keys()):
                 frequency = text.count(letter) / len_text
                 dictonary_of_frequency[letter] = frequency
-            else:
-                continue
-        result = sorted(dictonary_of_frequency.items(), key=lambda x: x[1], reverse=True)
+        result = sorted(dictonary_of_frequency.items(),
+                        key=lambda x: x[1], reverse=True)
         return result
     except Exception:
-        logging.error(f"Error in function frequency_analysis(text): could not return the list")
+        logging.error(
+            f"Error in function frequency_analysis(text): could not return the list")
 
 
 def main():
@@ -49,4 +50,3 @@ def main():
 
 if __name__ == '__main__':
     main()
- 

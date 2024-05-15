@@ -1,8 +1,7 @@
 {
-    "alphabet_1": "\\lab_1\\task1\\alphabet.json",
-    "key_data": "\\lab_1\\task1\\key.json",
-    "text_data": "\\lab_1\\task1\\text.txt",
-    "encrypted": "\\lab_1\\task1\\encrypted_text.txt",
-    "decrypted": "\\lab_1\\task1\\decrypted_text.txt"
-  }
-   
+  "alphabet_1": "\\lab_1\\task1\\alphabet.json",
+  "key_data": "\\lab_1\\task1\\key.json",
+  "text_data": "\\lab_1\\task1\\text.txt",
+  "encrypted": "\\lab_1\\task1\\encrypted_text.txt",
+  "decrypted": "\\lab_1\\task1\\decrypted_text.txt"
+}
