@@ -43,8 +43,8 @@ def main():
     text = for_work_with_file.read_from_file(absolute_path + encrypted)
     analis = frequency_analysis(text)
     for_work_with_file.save_to_json_file(absolute_path + analis_data, analis)
-    for letter in task2_key.dictonary_letter_value:
-        text = text.replace(task2_key.dictonary_letter_value[letter], letter)
+    for letter in task2_key.key:
+        text = text.replace(task2_key.key[letter], letter)
     for_work_with_file.save_to_file(absolute_path + decrypted, text)
 
 
