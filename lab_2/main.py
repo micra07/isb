@@ -115,14 +115,15 @@ def longest_ones_sequence_test(sequence: str):
                     max_length = max(max_length, count)
                 else:
                     count = 0
-            if max_length <= 1:
-                V[0] += 1
-            if max_length == 2:
-                V[1] += 1
-            if max_length == 3:
-                V[2] += 1
-            if max_length >= 4:
-                V[3] += 1
+            match max_length:
+                case _ if max_length <= 1:
+                    V[0] += 1
+                case 2:
+                    V[1] += 1
+                case 3:
+                    V[2] += 1
+                case _ if max_length >= 4:
+                    V[3] += 1
         Xi_2 = 0
         for i in range(0, 4):
             Xi_2 += pow((V[i] - 16 * P_I[i]), 2) / (16 * P_I[i])
