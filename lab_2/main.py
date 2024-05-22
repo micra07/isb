@@ -10,6 +10,15 @@ from constants import PATH, M, P_I
 
 
 def read_json_file(filename: str) -> dict:
+    """
+    Reads a JSON file and returns the data as a dictionary.
+
+    Parameters: 
+    The name of the JSON file to read.
+
+    Returns: 
+    A dictionary containing the data read from the JSON file.
+    """
     try:
         with open(filename, 'r', encoding='utf-8') as file:
             return json.load(file)
@@ -19,6 +28,15 @@ def read_json_file(filename: str) -> dict:
 
 
 def frequency_bitwise_test(sequence: str) -> float:
+    """
+    Performs a frequency bitwise test.
+
+    Parameters: 
+    The binary sequence to test.
+
+    Returns: 
+    The P-value calculated by the statistical test.
+    """
     try:
         N = len(sequence)
         sum = 0
@@ -38,6 +56,15 @@ def frequency_bitwise_test(sequence: str) -> float:
 
 
 def similar_sequences_test(sequence: str) -> float:
+    """
+    Performs a test for the same consecutive bits.
+    
+    Parameters:
+    The binary sequence to test.
+    
+    Returns:
+    The P-value calculated by the statistical test.
+    """
     try:
         N = len(sequence)
         sum = 0
@@ -65,6 +92,15 @@ def similar_sequences_test(sequence: str) -> float:
 
 
 def longest_ones_sequence_test(sequence: str):
+    """
+    Performs a test for the longest sequence of units in the block.
+    
+    Parameters:
+    The binary sequence to test..
+    
+    Returns:
+    The P-value calculated by the statistical test.
+    """
     try:
         blocks = []
         for i in range(0, int(len(sequence) / M)):
@@ -100,6 +136,9 @@ def longest_ones_sequence_test(sequence: str):
 
 
 def main() -> None:
+    """
+    Main function for output of results.
+    """
     absolute_path = os.path.abspath(os.getcwd())
     json_data = read_json_file(absolute_path + PATH)
     if json_data:
