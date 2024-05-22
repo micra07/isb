@@ -3,6 +3,9 @@ import java.util.Random;
 public class RandomSequenceGenerator {
 
     public static void main(String[] args) {
+        /**
+        *  Generates a random binary sequence of 128 bits and prints it.
+        */
         Random random = new Random(System.currentTimeMillis());
 
         StringBuilder sequence = new StringBuilder();
