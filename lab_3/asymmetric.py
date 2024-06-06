@@ -16,7 +16,7 @@ class Asymmetric:
         self.private_key = None
         self.public_key = None
 
-    def generate_and_serialize_key_pair def generating_key_pair(self)->tuple[rsa.RSAPublicKey, rsa.RSAPrivateKey]:
+    def generate_and_serialize_key_pair (self)->tuple[rsa.RSAPublicKey, rsa.RSAPrivateKey]:
         """
         Generates an asymmetric key pair and serializes them to files.
 
@@ -33,7 +33,7 @@ class Asymmetric:
         return (self.private_key, self.public_key)
 
     
-    def serialize_key(self, path: str, key_type: str)
+    def serialize_key(self, path: str, key_type: str):
         """
         Serializes a key from a file.
 
@@ -44,16 +44,16 @@ class Asymmetric:
         Returns:
         The serialized key object.
         """
-        with open(private_key_path, 'wb') as f:
-        if key_type == 'private':
-            f.write(self.private_key.private_bytes(encoding=serialization.Encoding.PEM,
+        with open(path, 'wb') as f:
+            if key_type == 'private':
+                f.write(self.private_key.private_bytes(encoding=serialization.Encoding.PEM,
                 format=serialization.PrivateFormat.TraditionalOpenSSL,
                 encryption_algorithm=serialization.NoEncryption()))
-        elif key_type == 'public':
-            f.write(self.public_key.public_bytes(encoding=serialization.Encoding.PEM,
+            elif key_type == 'public':
+                f.write(self.public_key.public_bytes(encoding=serialization.Encoding.PEM,
                 format=serialization.PublicFormat.SubjectPublicKeyInfo))
-         else:
-            raise ValueError("Invalid key type specified")
+            else:
+                raise ValueError("Invalid key type specified")
 
     def deserialize_key(self, path: str, key_type: str):
         """
