@@ -32,51 +32,6 @@ class Asymmetric:
         self.public_key = keys.public_key()
         return (self.private_key, self.public_key)
 
-    
-    def serialize_key(self, path: str, key_type: str):
-        """
-        Serializes a key from a file.
-
-        Parameters:
-        path (str): The path to the key file.
-        key_type (str): The type of key ('public' or 'private').
-
-        Returns:
-        The serialized key object.
-        """
-        with open(path, 'wb') as f:
-            if key_type == 'private':
-                f.write(self.private_key.private_bytes(encoding=serialization.Encoding.PEM,
-                format=serialization.PrivateFormat.TraditionalOpenSSL,
-                encryption_algorithm=serialization.NoEncryption()))
-            elif key_type == 'public':
-                f.write(self.public_key.public_bytes(encoding=serialization.Encoding.PEM,
-                format=serialization.PublicFormat.SubjectPublicKeyInfo))
-            else:
-                raise ValueError("Invalid key type specified")
-
-    def deserialize_key(self, path: str, key_type: str):
-        """
-        Deserializes a key from a file.
-
-        Parameters:
-        path (str): The path to the key file.
-        key_type (str): The type of key ('public' or 'private').
-
-        Returns:
-        The deserialized key object.
-        """
-        with open(path, 'rb') as f:
-            key_bytes = f.read()
-            if key_type == 'public':
-                self.public_key = load_pem_public_key(key_bytes)
-                return self.public_key
-            elif key_type == 'private':
-                self.private_key = load_pem_private_key(key_bytes, password=None)
-                return self.private_key
-            else:
-                raise ValueError("Invalid key type specified")
-
     def process_symmetric_key(self, key: bytes, key_path: str, operation: str) -> bytes:
         """
         Processes a symmetric key using asymmetric encryption.

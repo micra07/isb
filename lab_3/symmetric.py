@@ -1,9 +1,8 @@
 import os
-
 from cryptography.hazmat.primitives import padding
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
-from for_work_with_file import *
+from for_work_with_file import Support
 
 
 class Symmetric:
@@ -15,7 +14,7 @@ class Symmetric:
         Initializes the key to None.
         """
         self.key = None
-
+        
     def generate_key(self) -> bytes:
         """
         Generates a random symmetric key.
@@ -24,31 +23,6 @@ class Symmetric:
         bytes: The generated symmetric key.
         """
         self.key = os.urandom(16)
-        return self.key
-
-    def serialize_key(self, path: str) -> None:
-        """
-        Serializes the symmetric key to a file.
-
-        Parameters:
-        path (str): The path to save the key.
-
-        Returns:
-        None
-        """
-        write_bytes_to_txt(self.key, path)
-
-    def deserialize_key(self, path: str) -> bytes:
-        """
-        Deserializes the symmetric key from a file.
-
-        Parameters:
-        path (str): The path to the key file.
-
-        Returns:
-        bytes: The deserialized symmetric key.
-        """
-        self.key = read_bytes(path)
         return self.key
 
     def __pad_data(self, text: str) -> bytes:
@@ -65,7 +39,7 @@ class Symmetric:
         btext = bytes(text, 'UTF-8')
         padded_text = padder.update(btext) + padder.finalize()
         return padded_text
-
+    
     def __unpad_data(self, decrypted_text: bytes) -> str:
         """
         Removes the padding from decrypted text.
