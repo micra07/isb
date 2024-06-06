@@ -1,8 +1,7 @@
 import os
+
 from cryptography.hazmat.primitives import padding
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-
-from for_work_with_file import Support
 
 
 class Symmetric:
