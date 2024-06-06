@@ -6,6 +6,15 @@ from for_work_with_file import *
 
 
 def clean_text_files(file_paths: list):
+    """
+        Clean files.
+
+        Parameters:
+        path (str): The path to files.
+
+        Returns:
+        None
+        """
     for file_path in file_paths:
         try:
             with open(file_path, 'w') as file:
