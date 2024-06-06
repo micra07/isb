@@ -16,7 +16,7 @@ class Asymmetric:
         self.private_key = None
         self.public_key = None
 
-    def generate_and_serialize_key_pair (self)->tuple[rsa.RSAPublicKey, rsa.RSAPrivateKey]:
+    def generate_key_pair (self)->tuple[rsa.RSAPublicKey, rsa.RSAPrivateKey]:
         """
         Generates an asymmetric key pair and serializes them to files.
 
