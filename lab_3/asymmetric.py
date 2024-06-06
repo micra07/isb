@@ -68,14 +68,14 @@ class Asymmetric:
         """
         with open(path, 'rb') as f:
             key_bytes = f.read()
-        if key_type == 'public':
-            self.public_key = load_pem_public_key(key_bytes)
-            return self.public_key
-        elif key_type == 'private':
-            self.private_key = load_pem_private_key(key_bytes, password=None)
-            return self.private_key
-        else:
-            raise ValueError("Invalid key type specified")
+            if key_type == 'public':
+                self.public_key = load_pem_public_key(key_bytes)
+                return self.public_key
+            elif key_type == 'private':
+                self.private_key = load_pem_private_key(key_bytes, password=None)
+                return self.private_key
+            else:
+                raise ValueError("Invalid key type specified")
 
     def process_symmetric_key(self, key: bytes, key_path: str, operation: str) -> bytes:
         """
